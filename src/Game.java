@@ -7,6 +7,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 
 public class Game extends Application {
 
@@ -34,19 +36,19 @@ public class Game extends Application {
         paddle.setX(250);
         paddle.setY(ballWorld.getPrefHeight() - paddle.getHeight());
 
-        double brickX = 40;
-        double brickY = 150;
-        for (int i = 0; i < 10; i++) {
-            for (int j = 10; j > i; j--) {
-                Brick brick = new Brick();
-                brick.setX(brickX);
-                brick.setY(brickY);
-                brickX += 40;
-                ballWorld.add(brick);
-            }
-            brickX = 40;
-            brickY += 10;
-        }
+//        double brickX = 40;
+//        double brickY = 150;
+//        for (int i = 0; i < 10; i++) {
+//            for (int j = 10; j > i; j--) {
+//                Brick brick = new Brick();
+//                brick.setX(brickX);
+//                brick.setY(brickY);
+//                brickX += 40;
+//                ballWorld.add(brick);
+//            }
+//            brickX = 40;
+//            brickY += 10;
+//        }
 
         ballWorld.setOnMouseMoved(new EventHandler<MouseEvent>() {
             @Override

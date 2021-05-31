@@ -1,6 +1,6 @@
 import javafx.scene.image.Image;
 
-public class Ball extends Actor{
+public class Ball extends Actor {
 	
 	private double dx;
 	private double dy;
@@ -30,18 +30,24 @@ public class Ball extends Actor{
 		}
 		if(getY() + getHeight() >= getWorld().getHeight()) {
 			dy = -dy;
+			Score obj = ((BallWorld)getWorld()).getScore();
+			int tempScore = obj.getScoreCount();
+			obj.setScore(tempScore - 1000);
+			((BallWorld)getWorld()).scoreChanged(tempScore, obj.getScoreCount());
 			//((BallWorld)getWorld()).getScore().setScore(((BallWorld)getWorld()).getScore().getScoreCount()-1000);
 		}
 
-		if(getHeight() == getY()){
-			((BallWorld)getWorld()).getScore().setScore(((BallWorld)getWorld()).getScore().getScoreCount()-1000);
-		}
-
-//		if(getOneIntersectingObject(Paddle.class)!=null){
-//			dy = -dy;
+//		if(((BallWorld)getWorld()).getHeight() == getY()){
+//			System.out.println(getHeight());
+//			System.out.println(getY());
+//			Score obj = ((BallWorld)getWorld()).getScore();
+//			int tempScore = obj.getScoreCount();
+//			obj.setScore(tempScore - 1000);
+//			((BallWorld)getWorld()).scoreChanged(tempScore, obj.getScoreCount());
 //		}
 
 		if(getOneIntersectingObject(Brick.class)!=null){
+			System.out.println(getY());
 			double x = getOneIntersectingObject(Brick.class).getX();
 			double y = getOneIntersectingObject(Brick.class).getY();
 			if(getX() >= x && getX() <= x + getOneIntersectingObject(Brick.class).getWidth()){
@@ -54,8 +60,14 @@ public class Ball extends Actor{
 				dy = -dy;
 				dx = -dx;
 			}
-			((BallWorld)getWorld()).getScore().setScore(((BallWorld)getWorld()).getScore().getScoreCount()+100);
-			getWorld().remove(getOneIntersectingObject(Brick.class));
+
+			Score obj = ((BallWorld)getWorld()).getScore();
+			int tempScore = obj.getScoreCount();
+			obj.setScore(tempScore + 100);
+			((BallWorld)getWorld()).scoreChanged(tempScore, obj.getScoreCount());
+			//((BallWorld)getWorld()).getScore().setScore(((BallWorld)getWorld()).getScore().getScoreCount()+100);
+//			getWorld().remove(getOneIntersectingObject(Brick.class));
+			((BallWorld) getWorld()).removeBrick(getOneIntersectingObject(Brick.class));
 		}
 
 //		if(getOneIntersectingObject(Paddle.class).isMoving()) {
