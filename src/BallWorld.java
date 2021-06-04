@@ -14,21 +14,21 @@ public class BallWorld extends World implements ScoreListener{
 		score.addScoreListener(this);
 
 		bricks = new ArrayList<>();
-		double x = 200;
+		double x = 250;
 		double y = 100;
 		int changeX = -1;
 		for(int i = 1; i <= 12; i++){
 			Brick br = new Brick();
 			if(i == 7){
 				changeX = 1;
-				x = 200;
+				x = 250;
 				y = 100;
 			}
 			if(i == 1 || i == 7){
 				x += 50 * changeX;
 				br.setX(x);
 				br.setY(y);
-				y += 40;
+				y += 45;
 			}
 			else if(i == 2 || i == 8){
 				x += 50 * changeX;
@@ -37,6 +37,8 @@ public class BallWorld extends World implements ScoreListener{
 				y += 70;
 			}
 			else if(i == 6 || i == 12){
+				x -= 50 * changeX;
+				y += 25;
 //				x += 100 * changeX;
 				br.setY(y);
 				br.setX(x);
@@ -44,7 +46,7 @@ public class BallWorld extends World implements ScoreListener{
 			else {
 				br.setX(x);
 				br.setY(y);
-				y -= 25;
+				y += 35;
 			}
 			addBrick(br);
 		}
@@ -69,11 +71,11 @@ public class BallWorld extends World implements ScoreListener{
 
 	public void addBrick(Brick brick){
 		bricks.add(brick);
-		super.add(brick);
+		this.add(brick);
 	}
 
 	public void removeBrick(Brick brick){
 		bricks.remove(brick);
-		super.remove(brick);
+		this.remove(brick);
 	}
 }

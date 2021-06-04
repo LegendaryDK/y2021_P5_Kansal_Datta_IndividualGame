@@ -34,26 +34,11 @@ public class Game extends Application {
 
         Paddle paddle = new Paddle();
         paddle.setX(250);
-        paddle.setY(ballWorld.getPrefHeight() - paddle.getHeight());
-
-//        double brickX = 40;
-//        double brickY = 150;
-//        for (int i = 0; i < 10; i++) {
-//            for (int j = 10; j > i; j--) {
-//                Brick brick = new Brick();
-//                brick.setX(brickX);
-//                brick.setY(brickY);
-//                brickX += 40;
-//                ballWorld.add(brick);
-//            }
-//            brickX = 40;
-//            brickY += 10;
-//        }
+        paddle.setY(ballWorld.getPrefHeight() - paddle.getHeight() + 5);
 
         ballWorld.setOnMouseMoved(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //paddle.setMoving(true);
                 if (event.getX() <= ballWorld.getWidth() - paddle.getWidth()) paddle.setX(event.getX());
                 paddle.setDx(event.getX() - paddle.getX());
                 paddle.setPos(event.getX());
@@ -80,16 +65,21 @@ public class Game extends Application {
             }
         });
 
-
         ballWorld.add(ball);
         ballWorld.add(paddle);
         ballWorld.start();
+
+        if (ballWorld.getBricks().size() == 1){
+            System.out.println("Hi");
+        }
 
         Scene scene = new Scene(rootNode);
         stage.setScene(scene);
         stage.show();
 
         ballWorld.requestFocus();
+
+
 
     }
 

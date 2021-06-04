@@ -9,8 +9,11 @@ public class Ball extends Actor {
 		String path = getClass().getClassLoader().getResource("resources/ball.png").toString();
 		Image img = new Image(path);
 		this.setImage(img);
-		dx = 3.5;
-		dy = -2;
+		int change = (Math.random() > 0.5) ? 1 : -1;
+		dx = ((Math.random() * 3) + 2.5) * change;
+		dy = ((Math.random() * 2) + 1.5) * change;
+//		dx = 3.5;
+//		dy = -2;
 	}
 
 
@@ -47,7 +50,6 @@ public class Ball extends Actor {
 //		}
 
 		if(getOneIntersectingObject(Brick.class)!=null){
-			System.out.println(getY());
 			double x = getOneIntersectingObject(Brick.class).getX();
 			double y = getOneIntersectingObject(Brick.class).getY();
 			if(getX() >= x && getX() <= x + getOneIntersectingObject(Brick.class).getWidth()){
@@ -75,6 +77,7 @@ public class Ball extends Actor {
 //		}
 
 		if(getOneIntersectingObject(Paddle.class)!=null){
+//			System.out.println(((BallWorld)getWorld()).getBricks().size());
 			double x = getOneIntersectingObject(Paddle.class).getX();
 			double y = getOneIntersectingObject(Paddle.class).getY();
 			Paddle paddle = getOneIntersectingObject(Paddle.class);
@@ -83,7 +86,6 @@ public class Ball extends Actor {
 				dy = -dy;
 			}
 			if(paddle.getDx()!=0 || paddle.getPos() != paddle.getX()){
-				System.out.println("HI");
 				if((paddle.getDx() < 0 || paddle.getPos() > paddle.getX()) &&
 						getX() <= paddle.getX() + paddle.getWidth()/3){
 					dx = -Math.abs(dx);
