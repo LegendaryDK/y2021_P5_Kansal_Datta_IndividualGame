@@ -33,44 +33,12 @@ public class Ball extends Actor {
 		}
 		if(getY() + getHeight() >= getWorld().getHeight()) {
 			dy = -dy;
-			Score obj = ((BallWorld)getWorld()).getScore();
+			Score obj = ((BallWorld) getWorld()).getScore();
 			int tempScore = obj.getScoreCount();
 			obj.setScore(tempScore - 1000);
-			((BallWorld)getWorld()).scoreChanged(tempScore, obj.getScoreCount());
-			//((BallWorld)getWorld()).getScore().setScore(((BallWorld)getWorld()).getScore().getScoreCount()-1000);
+			((BallWorld) getWorld()).scoreChanged(tempScore, obj.getScoreCount());
 		}
 
-//		if(((BallWorld)getWorld()).getHeight() == getY()){
-//			System.out.println(getHeight());
-//			System.out.println(getY());
-//			Score obj = ((BallWorld)getWorld()).getScore();
-//			int tempScore = obj.getScoreCount();
-//			obj.setScore(tempScore - 1000);
-//			((BallWorld)getWorld()).scoreChanged(tempScore, obj.getScoreCount());
-//		}
-//		if (getOneIntersectingObject(Brick.class) != null){
-//			Brick b = getOneIntersectingObject(Brick.class);
-//			//((BallWorld) getWorld()).getScore().setScore(((BallWorld) getWorld()).getScore().getValue()+100);
-//			Score obj = ((BallWorld)getWorld()).getScore();
-//			int tempScore = obj.getScoreCount();
-//			obj.setScore(tempScore + 100);
-//			((BallWorld)getWorld()).scoreChanged(tempScore, obj.getScoreCount());
-//
-//			if(getX() + getWidth()/2<=b.getX()+b.getWidth()/2 && getX()-getWidth()/2 >= b.getX()-b.getWidth()/2) {
-//				dy = -dy;
-//			}
-//			else {
-//				if(getY()+getHeight()/2 <= b.getY()+b.getHeight()/2 && getY()-getHeight()/2 <= b.getY() -b.getHeight()/2) {
-//					dx = -dx;
-//				}
-//				else {
-//					dx = -dx;
-//					dy= -dy;
-//
-//				}
-//			}
-//			getWorld().remove(b);
-//		}
 
 		if(getOneIntersectingObject(Brick.class)!=null){
 			Brick b = getOneIntersectingObject(Brick.class);
@@ -91,17 +59,12 @@ public class Ball extends Actor {
 			int tempScore = obj.getScoreCount();
 			obj.setScore(tempScore + 100);
 			((BallWorld)getWorld()).scoreChanged(tempScore, obj.getScoreCount());
-			//((BallWorld)getWorld()).getScore().setScore(((BallWorld)getWorld()).getScore().getScoreCount()+100);
-//			getWorld().remove(getOneIntersectingObject(Brick.class));
+
 			((BallWorld) getWorld()).removeBrick(b);
 		}
 
-//		if(getOneIntersectingObject(Paddle.class).isMoving()) {
-//			System.out.println("HI");
-//		}
 
 		if(getOneIntersectingObject(Paddle.class)!=null){
-//			System.out.println(((BallWorld)getWorld()).getBricks().size());
 			double x = getOneIntersectingObject(Paddle.class).getX();
 			double y = getOneIntersectingObject(Paddle.class).getY();
 			Paddle paddle = getOneIntersectingObject(Paddle.class);
