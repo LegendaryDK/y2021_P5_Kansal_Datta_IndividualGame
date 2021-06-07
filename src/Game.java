@@ -69,17 +69,15 @@ public class Game extends Application {
         ballWorld.add(paddle);
         ballWorld.start();
 
-        if (ballWorld.getBricks().size() == 1){
-            System.out.println("Hi");
-        }
+//        if (ballWorld.getBricks().size() == 1){
+//            System.out.println("Hi");
+//        }
 
         Scene scene = new Scene(rootNode);
         stage.setScene(scene);
         stage.show();
 
         ballWorld.requestFocus();
-
-
 
     }
 

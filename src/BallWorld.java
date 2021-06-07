@@ -4,7 +4,7 @@ import java.util.List;
 public class BallWorld extends World implements ScoreListener{
 
 	private Score score;
-	private List<Brick> bricks;
+	private ArrayList<Brick> bricks;
 
 	public BallWorld(){
 		score = new Score();
@@ -54,7 +54,9 @@ public class BallWorld extends World implements ScoreListener{
 	
 	@Override
 	public void act(long now) {
-		
+		if(this.getObjects(Brick.class).size() == 0){
+			super.stop();
+		}
 	}
 
 	public Score getScore(){
@@ -65,7 +67,7 @@ public class BallWorld extends World implements ScoreListener{
 		score.setText(String.valueOf(newVal));
 	}
 
-	public List<Brick> getBricks(){
+	public ArrayList<Brick> getBricks(){
 		return bricks;
 	}
 

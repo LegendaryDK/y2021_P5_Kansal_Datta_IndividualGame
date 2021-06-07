@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c193f4c4-e727-460b-8f7f-aea306e1e77f" name="Default Changelist" comment="Added Score functionality and tried to improve the bricks">
-      <change afterPath="$PROJECT_DIR$/src/Life.java" afterDir="false" />
+    <list default="true" id="c193f4c4-e727-460b-8f7f-aea306e1e77f" name="Default Changelist" comment="Fixed a few brick bugs and laid foundation for lives system. looking to work on scene switching">
+      <change afterPath="$PROJECT_DIR$/src/Pause.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/Pause.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ball.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BallWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BallWorld.java" afterDir="false" />
@@ -32,6 +33,11 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/resources" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -63,7 +69,21 @@
       <option name="project" value="LOCAL" />
       <updated>1622448649461</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fixed a few brick bugs and laid foundation for lives system. looking to work on scene switching">
+      <created>1622786050116</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1622786050116</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Fixed a few brick bugs and laid foundation for lives system. looking to work on scene switching">
+      <created>1622786065552</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1622786065552</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -80,7 +100,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Score functionality and tried to improve the bricks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Score functionality and tried to improve the bricks" />
+    <MESSAGE value="Fixed a few brick bugs and laid foundation for lives system. looking to work on scene switching" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a few brick bugs and laid foundation for lives system. looking to work on scene switching" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

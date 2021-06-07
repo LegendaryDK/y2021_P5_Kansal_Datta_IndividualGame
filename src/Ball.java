@@ -48,14 +48,38 @@ public class Ball extends Actor {
 //			obj.setScore(tempScore - 1000);
 //			((BallWorld)getWorld()).scoreChanged(tempScore, obj.getScoreCount());
 //		}
+//		if (getOneIntersectingObject(Brick.class) != null){
+//			Brick b = getOneIntersectingObject(Brick.class);
+//			//((BallWorld) getWorld()).getScore().setScore(((BallWorld) getWorld()).getScore().getValue()+100);
+//			Score obj = ((BallWorld)getWorld()).getScore();
+//			int tempScore = obj.getScoreCount();
+//			obj.setScore(tempScore + 100);
+//			((BallWorld)getWorld()).scoreChanged(tempScore, obj.getScoreCount());
+//
+//			if(getX() + getWidth()/2<=b.getX()+b.getWidth()/2 && getX()-getWidth()/2 >= b.getX()-b.getWidth()/2) {
+//				dy = -dy;
+//			}
+//			else {
+//				if(getY()+getHeight()/2 <= b.getY()+b.getHeight()/2 && getY()-getHeight()/2 <= b.getY() -b.getHeight()/2) {
+//					dx = -dx;
+//				}
+//				else {
+//					dx = -dx;
+//					dy= -dy;
+//
+//				}
+//			}
+//			getWorld().remove(b);
+//		}
 
 		if(getOneIntersectingObject(Brick.class)!=null){
-			double x = getOneIntersectingObject(Brick.class).getX();
-			double y = getOneIntersectingObject(Brick.class).getY();
-			if(getX() >= x && getX() <= x + getOneIntersectingObject(Brick.class).getWidth()){
+			Brick b = getOneIntersectingObject(Brick.class);
+			double x = b.getX();
+			double y = b.getY();
+			if(getX() >= x && getX() <= x + b.getWidth()){
 				dy = -dy;
 			}
-			else if(getY() >= y && getY() <= y + getOneIntersectingObject(Brick.class).getHeight()){
+			else if(getY() >= y && getY() <= y + b.getHeight()){
 				dx = -dx;
 			}
 			else{
@@ -69,7 +93,7 @@ public class Ball extends Actor {
 			((BallWorld)getWorld()).scoreChanged(tempScore, obj.getScoreCount());
 			//((BallWorld)getWorld()).getScore().setScore(((BallWorld)getWorld()).getScore().getScoreCount()+100);
 //			getWorld().remove(getOneIntersectingObject(Brick.class));
-			((BallWorld) getWorld()).removeBrick(getOneIntersectingObject(Brick.class));
+			((BallWorld) getWorld()).removeBrick(b);
 		}
 
 //		if(getOneIntersectingObject(Paddle.class).isMoving()) {
